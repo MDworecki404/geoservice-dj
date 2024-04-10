@@ -26,9 +26,5 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   text-decoration:none;
   cursor:pointer;
 }
-.esri-ui-top-right{
-  width: 75%;
-}
-.esri-layer-list{
-  max-width: 75% !important;
-}
+
+

@@ -1,8 +1,10 @@
 import L from 'leaflet'
 import parkAreaLayer from './parkArea';
-import bikeRoutesGroup from './bikeRoutes';
+//import bikeRoutesGroup from './bikeRoutes';
+import {bikeRoutesLayers, overlayBikeRoutes} from './bikeRoutes'
+import $ from 'jquery'
 
-
+import huntingStands from '../layers/POIS/hunting_stands.json'
 
 const displayMap = async () => {
 
@@ -12,18 +14,19 @@ const displayMap = async () => {
     ); 
 
     const map = L.map('map', {
-        layers: [basemap, bikeRoutesGroup]
+        layers: [basemap, ...bikeRoutesLayers]
     }).setView([51.35986770935379, 16.57109135732551], 12);
     
-     
+
+    const HS = L.geoJSON(huntingStands)
 
     parkAreaLayer.addTo(map)
-
-    const overlayBikeRoutes = {
-        "Trasy rowerowe": bikeRoutesGroup
-    }
+    const bikeRoutesGroup = L.layerGroup(bikeRoutesLayers)
     const layerControl = L.control.layers(null, overlayBikeRoutes).addTo(map)
-    
+    //layerControl.addBaseLayer(bikeRoutesGroup, "Trasy Rowerowe")
+    layerControl.addOverlay(HS, 'wieze')
+    $('<span id="mapTitle"><b>Trasy Rowerowe</b><span>').insertBefore('.leaflet-control-layers-base');
+    $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(6)');
 
 }
 

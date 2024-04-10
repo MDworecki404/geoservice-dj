@@ -1,7 +1,6 @@
 <script>
 import gsap from 'gsap';
 import displayMap from '../scripts/displayMap.js'
-import '../../node_modules/leaflet/dist/leaflet.scss'
 
 const coverAnimation = () =>{
   gsap.to('.cover', {opacity: 0, duration: 2, delay: 0})
@@ -23,7 +22,7 @@ export default {
 #map
 </template>
 <style scoped lang="scss">
-
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
 #map{
 	width: 100vw;
 	height: 100vh;

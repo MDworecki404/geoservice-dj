@@ -179,15 +179,15 @@ const bikeRoutesLayers = [
     U_WLayer,
 ]
 
-const bikeRoutesGroup = L.layerGroup(bikeRoutesLayers)
+
 
 const overlayBikeRoutes = {
     "Uroczysko wrzosy": U_WLayer,
     "Trasa rowerowa nr 123109": T_R_123109Layer,
     "Trasa przez dworzec Wołów": T_P_D_WLayer,
     "Szlaki wokół Wołowa": S_W_WLayer,
-    "Trasa Lubiąż-Krzydlina Mała-Dębno-Tarchlice": L_K_M_D_TLayer
+    "Trasa Lubiąż-Krzydlina Mała-Dębno-Tarchlice<hr>": L_K_M_D_TLayer
 }
 
 
-export default bikeRoutesGroup
+export {bikeRoutesLayers, overlayBikeRoutes}
