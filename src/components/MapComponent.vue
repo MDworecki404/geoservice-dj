@@ -1,7 +1,7 @@
 <script>
 import gsap from 'gsap';
 import displayMap from '../scripts/displayMap.js'
-import '../../node_modules/leaflet/dist/leaflet.css'
+import '../../node_modules/leaflet/dist/leaflet.scss'
 
 const coverAnimation = () =>{
   gsap.to('.cover', {opacity: 0, duration: 2, delay: 0})

@@ -12,7 +12,7 @@
         "type": "Feature",
         "properties": {
           "Name": "Trasa rowerowa 123109",
-          "dlugosc": 40.97,
+          "dlugosc": "40.97",
           "link": "https://www.traseo.pl/trasa/park-krajobrazowy-dolina-jezierzycy-1"
         },
         "geometry": {

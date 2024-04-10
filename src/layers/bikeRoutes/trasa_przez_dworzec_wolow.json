@@ -12,7 +12,7 @@
         "type": "Feature",
         "properties": {
           "Name": "\nTrasa przez Dworzec Wołów (początek: Orzeszków)",
-          "dlugosc": 47.63,
+          "dlugosc": "47.63",
           "link": "https://www.komoot.com/pl-pl/smarttour/1621846"
         },
         "geometry": {
