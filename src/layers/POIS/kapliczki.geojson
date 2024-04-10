@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "kapliczki",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "2721694473", "code": 2735, "fclass": "wayside_shrine", "name": null }, "geometry": { "type": "Point", "coordinates": [ 16.5402982, 51.298284 ] } },
+{ "type": "Feature", "properties": { "osm_id": "2721694518", "code": 2735, "fclass": "wayside_shrine", "name": null }, "geometry": { "type": "Point", "coordinates": [ 16.5210938, 51.3016289 ] } },
+{ "type": "Feature", "properties": { "osm_id": "2721694599", "code": 2735, "fclass": "wayside_shrine", "name": null }, "geometry": { "type": "Point", "coordinates": [ 16.5010099, 51.3050685 ] } },
+{ "type": "Feature", "properties": { "osm_id": "4479808998", "code": 2735, "fclass": "wayside_shrine", "name": null }, "geometry": { "type": "Point", "coordinates": [ 16.4854621, 51.3663422 ] } },
+{ "type": "Feature", "properties": { "osm_id": "10899328629", "code": 2735, "fclass": "wayside_shrine", "name": null }, "geometry": { "type": "Point", "coordinates": [ 16.5395147, 51.2998936 ] } }
+]
+}
