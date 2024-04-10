@@ -1,5 +1,6 @@
 import L from 'leaflet'
-import layers from './layers';
+import parkAreaLayer from './parkArea';
+import bikeRoutesLayers from './bikeRoutes';
 
 
 
@@ -12,8 +13,12 @@ const displayMap = async () => {
         }
     ).addTo(map);  
 
-    for(let i=0; i<layers.length; i++){
-        layers[i].addTo(map)
+    parkAreaLayer.addTo(map)
+
+    //Bike routes loading
+
+    for(let i=0; i<bikeRoutesLayers.length; i++){
+        bikeRoutesLayers[i].addTo(map)
     }
 }
 
