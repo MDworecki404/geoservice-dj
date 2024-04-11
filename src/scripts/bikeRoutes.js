@@ -12,24 +12,22 @@ const L_K_M_D_TLayer = L.geoJson(L_K_M_D_T , {
                 <p><b>${feature.properties.Name}</b></p>
                 <hr>
                 <br>
-                Długość trasy: ${feature.properties.dlugosc}
+                Długość trasy: ${feature.properties.dlugosc}km
                 <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
         layer.on('mouseover', function(e){
             e.target.setStyle({
-                "weight": 4
+                "weight": 4,
+                "color": 'yellow'
             })
         })
         layer.on('mouseout', function(e){
             e.target.setStyle({
-                "weight": 3
-            })
-        })
-        layer.on('click', function(e){
-            e.target.setStyle({
-                "weight": 5
+                "weight": 3,
+                "color": '#6a93e4',
+                
             })
         })
     },
@@ -50,19 +48,21 @@ const S_W_WLayer = L.geoJson(S_W_W , {
                 <p><b>${feature.properties.Name}</b></p>
                 <hr>
                 <br>
-                Długość trasy: ${feature.properties.dlugosc}
+                Długość trasy: ${feature.properties.dlugosc}km
                 <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
         layer.on('mouseover', function(e){
             e.target.setStyle({
-                "weight": 4
+                "weight": 4,
+                "color": 'yellow'
             })
         })
         layer.on('mouseout', function(e){
             e.target.setStyle({
-                "weight": 3
+                "weight": 3,
+                "color": '#acc734'
             })
         })
     },
@@ -82,19 +82,21 @@ const T_P_D_WLayer = L.geoJson(T_P_D_W , {
                 <p><b>${feature.properties.Name}</b></p>
                 <hr>
                 <br>
-                Długość trasy: ${feature.properties.dlugosc}
+                Długość trasy: ${feature.properties.dlugosc}km
                 <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
         layer.on('mouseover', function(e){
             e.target.setStyle({
-                "weight": 4
+                "weight": 4,
+                "color": 'yellow'
             })
         })
         layer.on('mouseout', function(e){
             e.target.setStyle({
-                "weight": 3
+                "weight": 3,
+                "color": '#a8323c'
             })
         })
     },
@@ -114,19 +116,21 @@ const T_R_123109Layer = L.geoJson(T_R_123109 , {
                 <p><b>${feature.properties.Name}</b></p>
                 <hr>
                 <br>
-                Długość trasy: ${feature.properties.dlugosc}
+                Długość trasy: ${feature.properties.dlugosc}km
                 <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
         layer.on('mouseover', function(e){
             e.target.setStyle({
-                "weight": 4
+                "weight": 4,
+                "color": 'yellow'
             })
         })
         layer.on('mouseout', function(e){
             e.target.setStyle({
-                "weight": 3
+                "weight": 3,
+                "color": '#6d32a8'
             })
         })
     },
@@ -146,30 +150,36 @@ const U_WLayer = L.geoJson(U_W , {
                 <p><b>${feature.properties.Name}</b></p>
                 <hr>
                 <br>
-                Długość trasy: ${feature.properties.dlugosc}
+                Długość trasy: ${feature.properties.dlugosc}km
                 <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
         layer.on('mouseover', function(e){
             e.target.setStyle({
-                "weight": 4
+                "weight": 4,
+                "color": 'yellow'
             })
         })
         layer.on('mouseout', function(e){
             e.target.setStyle({
-                "weight": 3
+                "weight": 3,
+                "color": '#d642a5',
             })
         })
     },
     style: {
         "color": '#d642a5',
         "dashArray": '10, 10',
-        "weight": "3",
-        
+        "weight": "3",      
         
     }
 })
+L_K_M_D_TLayer.setZIndex(1)
+S_W_WLayer.setZIndex(1)
+T_P_D_WLayer.setZIndex(1)
+T_R_123109Layer.setZIndex(1)
+U_WLayer.setZIndex(1)
 
 const bikeRoutesLayers = [
     L_K_M_D_TLayer,

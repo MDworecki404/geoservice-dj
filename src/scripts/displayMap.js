@@ -21,12 +21,15 @@ const displayMap = async () => {
     const HS = L.geoJSON(huntingStands)
 
     parkAreaLayer.addTo(map)
+    parkAreaLayer.setZIndex(-1)
+    
+
     const bikeRoutesGroup = L.layerGroup(bikeRoutesLayers)
     const layerControl = L.control.layers(null, overlayBikeRoutes).addTo(map)
-    //layerControl.addBaseLayer(bikeRoutesGroup, "Trasy Rowerowe")
+    layerControl.addOverlay(parkAreaLayer, 'Obszar parku <br><hr>')
     layerControl.addOverlay(HS, 'wieze')
-    $('<span id="mapTitle"><b>Trasy Rowerowe</b><span>').insertBefore('.leaflet-control-layers-base');
-    $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(6)');
+    $('<span id="mapTitle"><b>Trasy Rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(1)');
+    $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
 
 }
 
