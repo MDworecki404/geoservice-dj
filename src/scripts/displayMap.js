@@ -1,7 +1,7 @@
 import L from 'leaflet'
 import parkAreaLayer from './parkArea';
-//import bikeRoutesGroup from './bikeRoutes';
-import {bikeRoutesLayers, overlayBikeRoutes} from './bikeRoutes'
+import {overlayBikeRoutes} from './bikeRoutes'
+import { overlayWalkRoutes } from './walkRoutes';
 import $ from 'jquery'
 
 import huntingStands from '../layers/POIS/hunting_stands.json'
@@ -14,22 +14,26 @@ const displayMap = async () => {
     ); 
 
     const map = L.map('map', {
-        layers: [basemap, ...bikeRoutesLayers]
+        layers: [basemap, parkAreaLayer],
+        minZoom: 8,
     }).setView([51.35986770935379, 16.57109135732551], 12);
     
 
     const HS = L.geoJSON(huntingStands)
 
-    parkAreaLayer.addTo(map)
-    parkAreaLayer.setZIndex(-1)
+
+    const overlayLayers = {
+        "Obszar parku <br><hr>": parkAreaLayer,
+        ...overlayBikeRoutes, 
+        ...overlayWalkRoutes}
+    console.log(overlayLayers)
     
 
-    const bikeRoutesGroup = L.layerGroup(bikeRoutesLayers)
-    const layerControl = L.control.layers(null, overlayBikeRoutes).addTo(map)
-    layerControl.addOverlay(parkAreaLayer, 'Obszar parku <br><hr>')
+    const layerControl = L.control.layers(null, overlayLayers).addTo(map)
     layerControl.addOverlay(HS, 'wieze')
-    $('<span id="mapTitle"><b>Trasy Rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(1)');
-    $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
+    $('<span id="mapTitle"><b>Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
+    $('<span id="mapTitle"><b>Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
+    $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
 
 }
 

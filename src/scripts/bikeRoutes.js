@@ -175,19 +175,8 @@ const U_WLayer = L.geoJson(U_W , {
         
     }
 })
-L_K_M_D_TLayer.setZIndex(1)
-S_W_WLayer.setZIndex(1)
-T_P_D_WLayer.setZIndex(1)
-T_R_123109Layer.setZIndex(1)
-U_WLayer.setZIndex(1)
 
-const bikeRoutesLayers = [
-    L_K_M_D_TLayer,
-    S_W_WLayer,
-    T_P_D_WLayer,
-    T_R_123109Layer,
-    U_WLayer,
-]
+
 
 
 
@@ -200,4 +189,4 @@ const overlayBikeRoutes = {
 }
 
 
-export {bikeRoutesLayers, overlayBikeRoutes}
+export {overlayBikeRoutes}

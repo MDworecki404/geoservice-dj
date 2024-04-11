@@ -27,4 +27,17 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   cursor:pointer;
 }
 
-
+.leaflet-popup-content-wrapper{
+  border-radius: 0px !important;
+  outline: solid 2px gray
+  
+}
+.leaflet-control-layers-list{
+  overflow-y: scroll;
+  max-height: 50vh;
+  max-width: 90vw;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}

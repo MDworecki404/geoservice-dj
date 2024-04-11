@@ -37,4 +37,5 @@ export default {
   background-color: rgba(79, 178, 219, 1);
 }
 
+
 </style>
