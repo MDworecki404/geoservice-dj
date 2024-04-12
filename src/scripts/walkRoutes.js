@@ -4,7 +4,12 @@ import T_R from '../layers/walkRoutes/tracks_rudno.json'
 import T_W_W_W from '../layers/walkRoutes/tracks_wolow_wrzosy_wolow.json'
 import T_W from '../layers/walkRoutes/tracks_wrzosy.json'
 
+const clickTolerance = L.canvas({
+    tolerance: 5
+})
+
 const T_A_O_WLayer = L.geoJSON(T_A_O_W, {
+    renderer: clickTolerance,
     onEachFeature: (feature, layer) => {
         layer.bindPopup(
             `
@@ -38,6 +43,7 @@ const T_A_O_WLayer = L.geoJSON(T_A_O_W, {
     }
 })
 const T_RLayer = L.geoJSON(T_R, {
+    renderer: clickTolerance,
     onEachFeature: (feature, layer) => {
         layer.bindPopup(
             `
@@ -71,6 +77,7 @@ const T_RLayer = L.geoJSON(T_R, {
     }
 })
 const T_W_W_WLayer = L.geoJSON(T_W_W_W, {
+    renderer: clickTolerance,
     onEachFeature: (feature, layer) => {
         layer.bindPopup(
             `
@@ -105,6 +112,7 @@ const T_W_W_WLayer = L.geoJSON(T_W_W_W, {
 })
 
 const T_WLayer = L.geoJSON(T_W, {
+    renderer: clickTolerance,
     onEachFeature: (feature, layer) => {
         layer.bindPopup(
             `
