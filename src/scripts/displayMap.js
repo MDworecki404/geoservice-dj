@@ -3,8 +3,8 @@ import parkAreaLayer from './parkArea';
 import {overlayBikeRoutes} from './bikeRoutes'
 import { overlayWalkRoutes } from './walkRoutes';
 import $ from 'jquery'
-
 import huntingStands from '../layers/POIS/hunting_stands.json'
+import legend from './legend';
 
 const displayMap = async () => {
 
@@ -34,6 +34,10 @@ const displayMap = async () => {
     $('<span id="mapTitle"><b>Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
     $('<span id="mapTitle"><b>Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
     $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
+    
+    //Legend
+    legend()
+    
 
 }
 

@@ -1,9 +1,11 @@
 import L from 'leaflet'
+import $ from 'jquery'
 import L_K_M_D_T from '../layers/bikeRoutes/lubiaz_krzydlina_mala_debno_tarchlice.json'
 import S_W_W from '../layers/bikeRoutes/szlaki_wokol_wolowa.json'
 import T_P_D_W from '../layers/bikeRoutes/trasa_przez_dworzec_wolow.json'
 import T_R_123109 from '../layers/bikeRoutes/trasa_rowerowa_123109.json'
 import U_W from '../layers/bikeRoutes/uroczysko_wrzosy.json'
+import UW from '../assets/legenda/rowery/UW.png'
 
 const clickTolerance = L.canvas({
     tolerance: 5
@@ -190,12 +192,13 @@ const U_WLayer = L.geoJson(U_W , {
 
 
 const overlayBikeRoutes = {
-    "Uroczysko wrzosy": U_WLayer,
-    "Trasa rowerowa nr 123109": T_R_123109Layer,
-    "Trasa przez dworzec Wołów": T_P_D_WLayer,
-    "Szlaki wokół Wołowa": S_W_WLayer,
-    "Trasa Lubiąż-Krzydlina Mała-Dębno-Tarchlice<hr>": L_K_M_D_TLayer
+    "Uroczysko wrzosy <img class='UWimg legendimg'/>": U_WLayer,
+    "Trasa rowerowa nr 123109 <img class='TR123109img legendimg'/>": T_R_123109Layer,
+    "Trasa przez dworzec Wołów <img class='TPDWimg legendimg'/>": T_P_D_WLayer,
+    "Szlaki wokół Wołowa <img class='SWWimg legendimg'/>": S_W_WLayer,
+    "Trasa Lubiąż-Krzydlina Mała-Dębno-Tarchlice <img class='LKMDTimg legendimg'/><hr>": L_K_M_D_TLayer
 }
+
 
 
 export {overlayBikeRoutes}
