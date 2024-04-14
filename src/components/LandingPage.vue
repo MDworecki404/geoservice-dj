@@ -12,25 +12,52 @@
         },
         methods: {
             parkInfoFunc(){
-                this.animState = 1
-                gsap.to('.title', {y: -150, duration: 0.5})
-                gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
-                this.parkInfo = 'Park krajobrazowy utworzony w 1994 (pow. 7953 ha) położony w województwie dolnośląskim, w powiecie wołowskim, na północny zachód od Wołowa, na pograniczu Niziny Śląskiej oraz Wału Trzebnickiego w dorzeczu Jezierzycy, do której na obszarze parku wpływa mały prawobrzeżny dopływ Juszka.'
+                if(this.animState === 0){
+                    this.animState = 1
+                    gsap.to('.title', {y: -150, duration: 0.5})
+                    gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
+                    this.parkInfo = 'Park krajobrazowy utworzony w 1994 (pow. 7953 ha) położony w województwie dolnośląskim, w powiecie wołowskim, na północny zachód od Wołowa, na pograniczu Niziny Śląskiej oraz Wału Trzebnickiego w dorzeczu Jezierzycy, do której na obszarze parku wpływa mały prawobrzeżny dopływ Juszka.'
+                }
+                else if(this.animState === 2 || this.animState === 3){
+                    this.animState = 1
+                    gsap.to('.info', {opacity: 0, duration: 0.5})
+                    setTimeout(function(){
+                        this.parkInfo = 'Park krajobrazowy utworzony w 1994 (pow. 7953 ha) położony w województwie dolnośląskim, w powiecie wołowskim, na północny zachód od Wołowa, na pograniczu Niziny Śląskiej oraz Wału Trzebnickiego w dorzeczu Jezierzycy, do której na obszarze parku wpływa mały prawobrzeżny dopływ Juszka.'
+                    }.bind(this), 500)
+                    gsap.to('.info', {opacity: 1, duration: 0.5, delay: 0.5})
+                }
             },
             projectInfoFunc(){
-                this.animState = 2
-                gsap.to('.title', {y: -150, duration: 0.5})
-                gsap.fromTo('.info', {opacity: 0, duration: 0.5}, {opacity: 1, duration: 0.5, delay: 0.5})
-                this.parkInfo = 'Projekt jest wynikiem pracy inżynierskiej i powstał w celach edukacyjnych.'
-
+                if(this.animState === 0){
+                    this.animState = 2
+                    gsap.to('.title', {y: -150, duration: 0.5})
+                    gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
+                    this.parkInfo = 'Projekt jest wynikiem pracy inżynierskiej i powstał w celach edukacyjnych.'
+                }
+                else if(this.animState === 1 || this.animState === 3){
+                    this.animState = 2
+                    gsap.to('.info', {opacity: 0, duration: 0.5})
+                    setTimeout(function(){
+                        this.parkInfo = 'Projekt jest wynikiem pracy inżynierskiej i powstał w celach edukacyjnych.'
+                    }.bind(this), 500)
+                    gsap.to('.info', {opacity: 1, duration: 0.5, delay: 0.5})
+                }
             },
             rulesInfoFunc(){
-                this.animState = 3
-                gsap.to('.title', {y: -150, duration: 0.5})
-                gsap.fromTo('.info', {opacity: 0, duration: 0.5}, {opacity: 1, duration: 0.5, delay: 0.5})
-                this.parkInfo = `
-                    Nic tu jeszcze nie ma
-                `
+                if(this.animState === 0){
+                    this.animState = 3
+                    gsap.to('.title', {y: -150, duration: 0.5})
+                    gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
+                    this.parkInfo = 'Nic tu jeszcze nie ma'
+                }
+                else if(this.animState === 1 || this.animState === 2){
+                    this.animState = 3
+                    gsap.to('.info', {opacity: 0, duration: 0.5})
+                    setTimeout(function(){
+                        this.parkInfo = 'Nic tu jeszcze nie ma'
+                    }.bind(this), 500)
+                    gsap.to('.info', {opacity: 1, duration: 0.5, delay: 0.5})
+                }
             }
             
         }
