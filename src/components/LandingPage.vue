@@ -6,22 +6,26 @@
     export default {
         data(){
             return {
-                parkInfo: ''
+                parkInfo: '',
+                animState: 0
             }
         },
         methods: {
             parkInfoFunc(){
+                this.animState = 1
                 gsap.to('.title', {y: -150, duration: 0.5})
                 gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
                 this.parkInfo = 'Park krajobrazowy utworzony w 1994 (pow. 7953 ha) położony w województwie dolnośląskim, w powiecie wołowskim, na północny zachód od Wołowa, na pograniczu Niziny Śląskiej oraz Wału Trzebnickiego w dorzeczu Jezierzycy, do której na obszarze parku wpływa mały prawobrzeżny dopływ Juszka.'
             },
             projectInfoFunc(){
+                this.animState = 2
                 gsap.to('.title', {y: -150, duration: 0.5})
                 gsap.fromTo('.info', {opacity: 0, duration: 0.5}, {opacity: 1, duration: 0.5, delay: 0.5})
                 this.parkInfo = 'Projekt jest wynikiem pracy inżynierskiej i powstał w celach edukacyjnych.'
 
             },
             rulesInfoFunc(){
+                this.animState = 3
                 gsap.to('.title', {y: -150, duration: 0.5})
                 gsap.fromTo('.info', {opacity: 0, duration: 0.5}, {opacity: 1, duration: 0.5, delay: 0.5})
                 this.parkInfo = `

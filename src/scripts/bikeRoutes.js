@@ -1,11 +1,9 @@
 import L from 'leaflet'
-import $ from 'jquery'
 import L_K_M_D_T from '../layers/bikeRoutes/lubiaz_krzydlina_mala_debno_tarchlice.json'
 import S_W_W from '../layers/bikeRoutes/szlaki_wokol_wolowa.json'
 import T_P_D_W from '../layers/bikeRoutes/trasa_przez_dworzec_wolow.json'
 import T_R_123109 from '../layers/bikeRoutes/trasa_rowerowa_123109.json'
 import U_W from '../layers/bikeRoutes/uroczysko_wrzosy.json'
-import UW from '../assets/legenda/rowery/UW.png'
 
 const clickTolerance = L.canvas({
     tolerance: 5
