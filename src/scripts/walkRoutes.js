@@ -27,13 +27,13 @@ const T_A_O_WLayer = L.geoJSON(T_A_O_W, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": 3,
-                "color": '#a8323c'
+                "color": '#01ffe6'
             })
         })
     },
     style: {
-        "color": '#a8323c',
-        "dashArray": '10, 10',
+        "color": '#01ffe6',
+        "dashArray": '1, 5',
         "weight": "3",
         
         
@@ -61,13 +61,13 @@ const T_RLayer = L.geoJSON(T_R, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": 3,
-                "color": '#a8323c'
+                "color": '#c4ff01'
             })
         })
     },
     style: {
-        "color": '#a8323c',
-        "dashArray": '10, 10',
+        "color": '#c4ff01',
+        "dashArray": '1, 5',
         "weight": "3",
         
         
@@ -95,13 +95,13 @@ const T_W_W_WLayer = L.geoJSON(T_W_W_W, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": 3,
-                "color": '#a8323c'
+                "color": '#ff0162'
             })
         })
     },
     style: {
-        "color": '#a8323c',
-        "dashArray": '10, 10',
+        "color": '#ff0162',
+        "dashArray": '1, 5',
         "weight": "3",
         
         
@@ -130,13 +130,13 @@ const T_WLayer = L.geoJSON(T_W, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": 3,
-                "color": '#a8323c'
+                "color": '#ffaa01'
             })
         })
     },
     style: {
-        "color": '#a8323c',
-        "dashArray": '10, 10',
+        "color": '#ffaa01',
+        "dashArray": '1, 5',
         "weight": "3",
         
         
