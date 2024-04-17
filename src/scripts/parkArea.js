@@ -1,13 +1,12 @@
 import L from 'leaflet'
 import parkArea from '../layers/parkArea.json'
 
-const parkAreaStyle = {
-    "fillColor": 'none',
+const parkAreaLayer = L.geoJson(parkArea, {
+    style: {
+    "fill": false,
     "color": '#4389d4',
     "fillOpacity": 0
-}
-const parkAreaLayer = L.geoJson(parkArea, {
-    style: parkAreaStyle
+    }
 })
 
 

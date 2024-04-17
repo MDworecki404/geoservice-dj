@@ -12,11 +12,16 @@ const displayMap = async () => {
             //attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }
     ); 
+    const clickTolerance = L.canvas({
+        tolerance: 5
+    })
 
     const map = L.map('map', {
         layers: [basemap, parkAreaLayer],
         minZoom: 8,
+        renderer: clickTolerance
     }).setView([51.35986770935379, 16.57109135732551], 12);
+    
     
 
     const HS = L.geoJSON(huntingStands)
