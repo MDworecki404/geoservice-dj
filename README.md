@@ -7,7 +7,7 @@ This application is the result of my thesis in Geodesy and Cartography. To creat
 -SCSS<br>
 -Leaflet<br>
 -jQuery<br>
--GSAP<br>
+-GSAP<br><br>
 All vector data needed to create the application was previously prepared in Quantum GIS(QGIS) software.<br>
 
 The application was created for tourists visiting the Jezierzyca Valley Landscape Park located in Poland's Lower Silesia province. The application is compatible with mobile devices so you can easily use it anywhere.<br>
