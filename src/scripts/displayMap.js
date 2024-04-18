@@ -38,7 +38,7 @@ const displayMap = async () => {
     layerControl.addOverlay(HS, 'wieze')
     $('<span id="mapTitle"><b>Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
     $('<span id="mapTitle"><b>Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
-    $('<span id="mapTitle"><b>POIS</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
+    $('<span id="mapTitle"><b>Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
     
     //Legend
     legend()

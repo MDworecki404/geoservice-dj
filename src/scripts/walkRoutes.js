@@ -144,10 +144,10 @@ const T_WLayer = L.geoJSON(T_W, {
 })
 
 const overlayWalkRoutes = {
-    "Trasa na azymut w okolicach Wołowa": T_A_O_WLayer,
-    "Rudno": T_RLayer,
-    "Wołów - Wrzosy - Wołów": T_W_W_WLayer,
-    "Wrzosy koło Wołowa": T_WLayer
+    "Trasa na azymut w okolicach Wołowa <img class='TAOWimg legendimg'/>": T_A_O_WLayer,
+    "Rudno <img class='TRimg legendimg'/>": T_RLayer,
+    "Wołów - Wrzosy - Wołów <img class='TWWWimg legendimg'/>": T_W_W_WLayer,
+    "Wrzosy koło Wołowa <img class='TWimg legendimg'/>": T_WLayer
 }
 
 export {overlayWalkRoutes}
