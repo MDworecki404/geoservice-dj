@@ -4,6 +4,9 @@ import {overlayBikeRoutes} from './bikeRoutes'
 import { overlayWalkRoutes } from './walkRoutes';
 import $ from 'jquery'
 import huntingStands from '../layers/POIS/hunting_stands.json'
+import bikeIcon from '../assets/icons/bikeIcon.svg'
+import walkingIcon from '../assets/icons/walkingIcon.svg'
+import placesIcon from '../assets/icons/placesIcon.svg'
 import legend from './legend';
 
 const displayMap = async () => {
@@ -36,12 +39,15 @@ const displayMap = async () => {
 
     const layerControl = L.control.layers(null, overlayLayers).addTo(map)
     layerControl.addOverlay(HS, 'wieze')
-    $('<span id="mapTitle"><b>Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
-    $('<span id="mapTitle"><b>Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
-    $('<span id="mapTitle"><b>Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
-    
+    $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
+    $('.bikeIcon').attr('src',`${bikeIcon}`).css('transform', 'translate(0px,25%)')
+    $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
+    $('.walkingIcon').attr('src',`${walkingIcon}`).css('transform', 'translate(0px,25%)')
+    $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
+    $('.placesIcon').attr('src',`${placesIcon}`).css('transform', 'translate(0px,25%)')
+
     //Legend
-    legend()
+    //legend()
     
 
 }
