@@ -7,7 +7,7 @@ import $ from 'jquery'
 import bikeIcon from '../assets/icons/bikeIcon.svg'
 import walkingIcon from '../assets/icons/walkingIcon.svg'
 import placesIcon from '../assets/icons/placesIcon.svg'
-import legend from './legend'
+//import legend from './legend'
 
 const displayMap = async () => {
 
@@ -22,6 +22,7 @@ const displayMap = async () => {
     const map = L.map('map', {
         layers: [basemap, parkAreaLayer],
         minZoom: 8,
+        
         renderer: clickTolerance
     }).setView([51.35986770935379, 16.57109135732551], 12);
     
@@ -33,7 +34,7 @@ const displayMap = async () => {
         "Obszar parku <br><hr>": parkAreaLayer,
         ...overlayBikeRoutes, 
         ...overlayWalkRoutes,
-        ...placesOverlay
+        ...overlayPlaces
     }
     console.log(overlayLayers)
     
