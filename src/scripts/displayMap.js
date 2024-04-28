@@ -1,13 +1,13 @@
 import L from 'leaflet'
-import parkAreaLayer from './parkArea';
+import parkAreaLayer from './parkArea'
 import {overlayBikeRoutes} from './bikeRoutes'
-import { overlayWalkRoutes } from './walkRoutes';
+import { overlayWalkRoutes } from './walkRoutes'
+import {overlayPlaces} from './places'
 import $ from 'jquery'
-import huntingStands from '../layers/POIS/hunting_stands.json'
 import bikeIcon from '../assets/icons/bikeIcon.svg'
 import walkingIcon from '../assets/icons/walkingIcon.svg'
 import placesIcon from '../assets/icons/placesIcon.svg'
-import legend from './legend';
+import legend from './legend'
 
 const displayMap = async () => {
 
@@ -27,18 +27,18 @@ const displayMap = async () => {
     
     
 
-    const HS = L.geoJSON(huntingStands)
 
 
     const overlayLayers = {
         "Obszar parku <br><hr>": parkAreaLayer,
         ...overlayBikeRoutes, 
-        ...overlayWalkRoutes}
+        ...overlayWalkRoutes,
+        ...placesOverlay
+    }
     console.log(overlayLayers)
     
 
     const layerControl = L.control.layers(null, overlayLayers).addTo(map)
-    layerControl.addOverlay(HS, 'wieze')
     $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
     $('.bikeIcon').attr('src',`${bikeIcon}`).css('transform', 'translate(0px,25%)')
     $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
