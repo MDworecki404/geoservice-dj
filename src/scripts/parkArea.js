@@ -5,9 +5,7 @@ import popupImage from '../assets/uroczysko_wrzosy/popupImage.jpg'
 
 const parkAreaLayer = L.geoJson(parkArea, {
     style: {
-    "fill": false,
     "color": '#4389d4',
-    "fillOpacity": 0,
     }
 })
 const natureReserveLayer = L.geoJson(natureReserve, {
