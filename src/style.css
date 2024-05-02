@@ -33,9 +33,7 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   border-radius: 0px !important;
   outline: solid 2px gray;
 }
-.leaflet-popup-content{
-  
-}
+
 .leaflet-control-layers-list{
   overflow-y: scroll;
   max-height: 50vh;
