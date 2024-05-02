@@ -31,7 +31,9 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 
 .leaflet-popup-content-wrapper{
   border-radius: 0px !important;
-  outline: solid 2px gray
+  outline: solid 2px gray;
+}
+.leaflet-popup-content{
   
 }
 .leaflet-control-layers-list{

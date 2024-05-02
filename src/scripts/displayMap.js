@@ -1,5 +1,5 @@
 import L from 'leaflet'
-import parkAreaLayer from './parkArea'
+import { parkAreaLayer, natureReserveLayer } from './parkArea'
 import {overlayBikeRoutes} from './bikeRoutes'
 import { overlayWalkRoutes } from './walkRoutes'
 import {overlayPlaces} from './places'
@@ -31,7 +31,8 @@ const displayMap = async () => {
 
 
     const overlayLayers = {
-        "Obszar parku <br><hr>": parkAreaLayer,
+        "Obszar parku ": parkAreaLayer,
+        "Rezerwat przyrody Uroczysko Wrzosy <br><hr>": natureReserveLayer,
         ...overlayBikeRoutes, 
         ...overlayWalkRoutes,
         ...overlayPlaces
@@ -40,11 +41,11 @@ const displayMap = async () => {
     
 
     const layerControl = L.control.layers(null, overlayLayers).addTo(map)
-    $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(2)');
+    $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(3)');
     $('.bikeIcon').attr('src',`${bikeIcon}`).css('transform', 'translate(0px,25%)')
-    $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(8)');
+    $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(9)');
     $('.walkingIcon').attr('src',`${walkingIcon}`).css('transform', 'translate(0px,25%)')
-    $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(13)');
+    $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(14)');
     $('.placesIcon').attr('src',`${placesIcon}`).css('transform', 'translate(0px,25%)')
 
     //Legend

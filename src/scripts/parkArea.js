@@ -1,5 +1,7 @@
 import L from 'leaflet'
 import parkArea from '../layers/parkArea.json'
+import natureReserve from '../layers/rezerwat_uroczysko.json'
+import popupImage from '../assets/uroczysko_wrzosy/popupImage.jpg'
 
 const parkAreaLayer = L.geoJson(parkArea, {
     style: {
@@ -8,7 +10,26 @@ const parkAreaLayer = L.geoJson(parkArea, {
     "fillOpacity": 0,
     }
 })
+const natureReserveLayer = L.geoJson(natureReserve, {
+    onEachFeature: (feature, layer) => {
+        layer.bindPopup(
+            `
+                <p><b>${feature.properties.NAME}</b></p>
+                <hr>
+                <br>
+                <img style="width: 300px" src=${popupImage}></img>
+                <br>
+                <p>${feature.properties.description}</p>
+            `
+        )
+    },
+    style: {
+        "fillColor": '#38e488',
+        "color": '#38e488',
+        "fillOpacity": 0.1,
+        "weight": .5
+    }
+})
 
 
-
-export default parkAreaLayer
+export {parkAreaLayer, natureReserveLayer}
