@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "miejsca_historyczne_zabytki",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "nazwa": "Dymarki Tarchalickie", "opis": null }, "geometry": { "type": "Point", "coordinates": [ 16.486958397571534, 51.367797499963501 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Ruiny pałacu w Moczydlnicy Klasztornej", "opis": null }, "geometry": { "type": "Point", "coordinates": [ 16.581752195397112, 51.405994553244383 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Pałac w Wołowie", "opis": null }, "geometry": { "type": "Point", "coordinates": [ 16.642867087582758, 51.337135339919222 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Zespół pałacowy i folwarczny w Dziewinie", "opis": null }, "geometry": { "type": "Point", "coordinates": [ 16.459094602370133, 51.372392851612631 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Plebania i Klasztor Karmelitów w Krzydlinie Małej", "opis": null }, "geometry": { "type": "Point", "coordinates": [ 16.541333098230684, 51.296899407209203 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Pałac Mojęcice", "opis": null }, "geometry": { "type": "Point", "coordinates": [ 16.595730953482025, 51.301328148972217 ] } }
+]
+}

@@ -12,7 +12,7 @@ import placesIcon from '../assets/icons/placesIcon.svg'
 const displayMap = async () => {
 
     const basemap = L.tileLayer('http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
-            //attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
         }
     ); 
     const clickTolerance = L.canvas({
