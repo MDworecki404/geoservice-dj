@@ -47,7 +47,7 @@ const displayMap = async () => {
     $('.walkingIcon').attr('src',`${walkingIcon}`).css('transform', 'translate(0px,25%)')
     $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(14)');
     $('.placesIcon').attr('src',`${placesIcon}`).css('transform', 'translate(0px,25%)')
-
+    
     //Legend
     //legend()
     

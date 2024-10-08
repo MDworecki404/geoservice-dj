@@ -43,3 +43,6 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   padding-bottom: 10px;
   
 }
+.leaflet-control-layers-selector:checked{
+  outline: solid #4389d4 1px;
+}
