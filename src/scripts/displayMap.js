@@ -1,4 +1,6 @@
 import L from 'leaflet'
+import "leaflet.locatecontrol"
+import "leaflet.locatecontrol/dist/L.Control.Locate.min.css"
 import { parkAreaLayer, natureReserveLayer } from './parkArea'
 import {overlayBikeRoutes} from './bikeRoutes'
 import { overlayWalkRoutes } from './walkRoutes'
@@ -38,6 +40,13 @@ const displayMap = async () => {
         ...overlayPlaces
     }
     console.log(overlayLayers)
+
+    L.control.locate({
+        showPopup: false,
+        strings: {
+            title:'Pokaż moją pozycję'
+        }
+    }).addTo(map)
     
 
     const layerControl = L.control.layers(null, overlayLayers).addTo(map)
