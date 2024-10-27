@@ -5,6 +5,7 @@ import { parkAreaLayer, natureReserveLayer } from './parkArea'
 import {overlayBikeRoutes} from './bikeRoutes'
 import { overlayWalkRoutes } from './walkRoutes'
 import {overlayPlaces} from './places'
+import { overlayPOIS } from './POIS'
 import $ from 'jquery'
 import bikeIcon from '../assets/icons/bikeIcon.svg'
 import walkingIcon from '../assets/icons/walkingIcon.svg'
@@ -37,7 +38,8 @@ const displayMap = async () => {
         "Rezerwat przyrody Uroczysko Wrzosy <br><hr>": natureReserveLayer,
         ...overlayBikeRoutes, 
         ...overlayWalkRoutes,
-        ...overlayPlaces
+        ...overlayPlaces,
+        ...overlayPOIS
     }
     console.log(overlayLayers)
 
