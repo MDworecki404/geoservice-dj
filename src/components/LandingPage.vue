@@ -67,9 +67,10 @@
 </script>
 
 <template lang="pug"> 
+
 .main
     .main_panel
-        .main_panel--title 
+        .main_panel--title
             .title Park Krajobrazowy: Dolina Jezierzycy
             .info {{ parkInfo }} 
         .main_panel--nav
@@ -80,18 +81,28 @@
             div
                 router-link(to='/map')
                     button Przejdź do mapy
+video.backgroundVideo(autoplay muted loop)
+    source(src='../assets/PracaINZ.mp4' type='video/mp4')
 </template>
 
 <style scoped lang="scss">
 
-    $background: rgba(79, 178, 219, 0.8235);
+    $background: rgba(79, 177, 219, 0.562);
+    
+    .backgroundVideo{
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100vw;
+    }
 
     .main{
         width: 100vw;
         height: 100vh;
         margin: 0;
         padding: 0;
-        background-image: url('../assets/landingpagebackground.jpg');
+        //background-image: url('../assets/landingpagebackground.jpg');
         background-size: cover;
         background-position: center;
         opacity: 1;
