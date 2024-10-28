@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 460 460" xml:space="preserve">
+<g>
+	<path style="fill:#FF1909;" d="M230,0C102.974,0,0,102.975,0,230c0,104.798,70.094,193.215,165.953,220.953L459.039,209.04
+		C448.449,91.84,349.958,0,230,0z"/>
+	<path style="fill:#AA1106;" d="M460,230c0-7.067-0.337-14.055-0.961-20.96L300,50L45,330l120.953,120.953
+		C186.285,456.836,207.772,460,230,460C357.026,460,460,357.025,460,230z"/>
+	<polygon style="fill:#FF984C;" points="160,70 160,140 240,140 240,60 	"/>
+	<polygon style="fill:#FF6E36;" points="300,70 230,60 230,140 300,140 	"/>
+	<rect x="160" y="50" style="fill:#FF6E36;" width="70" height="20"/>
+	<rect x="230" y="50" style="fill:#FF5347;" width="70" height="20"/>
+	<rect x="160" y="90" style="fill:#FF6E36;" width="70" height="20"/>
+	<rect x="230" y="90" style="fill:#FF5347;" width="70" height="20"/>
+	<rect x="220" y="90" style="fill:#550803;" width="20" height="50"/>
+	<rect x="260" y="90" style="fill:#550803;" width="20" height="50"/>
+	<rect x="180" y="90" style="fill:#AA1106;" width="20" height="50"/>
+	<polygon style="fill:#FF6E36;" points="355,130 270,130 270,190 355,180 	"/>
+	<polygon style="fill:#FF984C;" points="375,180 270,180 270,240 375,230 	"/>
+	<polygon style="fill:#FF6E36;" points="395,230 270,230 270,290 395,280 	"/>
+	<rect x="270" y="280" style="fill:#FF984C;" width="145" height="50"/>
+	<polygon style="fill:#FF984C;" points="105,130 105,180 190,190 190,130 	"/>
+	<polygon style="fill:#FFD170;" points="85,180 85,230 190,240 190,180 	"/>
+	<polygon style="fill:#FF984C;" points="65,230 65,280 190,290 190,230 	"/>
+	<rect x="45" y="280" style="fill:#FFD170;" width="145" height="50"/>
+	<polygon style="fill:#FFE1A0;" points="200,130 190,230 200,330 230,330 240,230 230,130 	"/>
+	<polygon style="fill:#FFD170;" points="230,130 230,330 260,330 270,230 260,130 	"/>
+	<rect x="180" y="130" style="fill:#FFFFFF;" width="20" height="200"/>
+	<rect x="260" y="130" style="fill:#FFF0CF;" width="20" height="200"/>
+</g>
+</svg>
