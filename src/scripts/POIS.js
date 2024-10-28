@@ -1,59 +1,86 @@
 import POIS from '../layers/POIS/POIS_ALL.json'
 import huntingStandIcon from '../assets/icons/huntingStandIcon.svg'
 import archaeologicalIcon from '../assets/icons/archaeologicalIcon.svg'
+import attractionIcon from '../assets/icons/attractionIcon.svg'
+import benchIcon from '../assets/icons/benchIcon.svg'
+import hotelIcon from '../assets/icons/hotelIcon.svg'
+import memorialIcon from '../assets/icons/memorialIcon.svg'
+import observationTowerIcon from '../assets/icons/observationTowerIcon.svg'
+import picnicIcon from '../assets/icons/picnicIcon.svg'
+import pitchIcon from '../assets/icons/pitchIcon.svg'
+import postBoxIcon from '../assets/icons/postBoxIcon.svg'
+import shelterIcon from '../assets/icons/shelterIcon.svg'
+import touristInfoIcon from '../assets/icons/touristInfoIcon.svg'
+import crossIcon from '../assets/icons/crossIcon.svg'
+import shrineIcon from '../assets/icons/shrineIcon.svg'
 
 const POISLayer = L.geoJSON(POIS, {
     pointToLayer: (feature, latlng) => {
         let iconUrl
+        let iconSize
 
         switch(feature.properties.fclass){
             case 'archaeological':
                 iconUrl = archaeologicalIcon
+                iconSize = [25,25]
                 break
             case 'attraction':
-                iconUrl = '/'
+                iconUrl = attractionIcon
+                iconSize = [25,25]
                 break
             case 'bench':
-                iconUrl = '/'
+                iconUrl = benchIcon
+                iconSize = [35,35]
                 break
             case 'guesthouse':
-                iconUrl = '/'
+                iconUrl = hotelIcon
+                iconSize = [25,25]
                 break
             case 'hunting_stand':
                 iconUrl = huntingStandIcon
+                iconSize = [20,20]
                 break
             case 'memorial':
-                iconUrl = '/'
+                iconUrl = memorialIcon
+                iconSize = [25,25]
                 break
             case 'observation_tower':
-                iconUrl = '/'
+                iconUrl = observationTowerIcon
+                iconSize = [25,25]
                 break
             case 'picnic_site':
-                iconUrl = '/'
+                iconUrl = picnicIcon
+                iconSize = [25,25]
                 break
             case 'pitch':
-                iconUrl = '/'
+                iconUrl = pitchIcon
+                iconSize = [25,25]
                 break
             case 'post_box':
-                iconUrl = '/'
+                iconUrl = postBoxIcon
+                iconSize = [25,25]
                 break
             case 'shelter':
-                iconUrl = '/'
+                iconUrl = shelterIcon
+                iconSize = [25,25]
                 break
             case 'tourist_info':
-                iconUrl = '/'
+                iconUrl = touristInfoIcon
+                iconSize = [25,25]
                 break
             case 'wayside_cross':
-                iconUrl = '/'
+                iconUrl = crossIcon
+                iconSize = [25,25]
                 break
             case 'wayside_shrine':
-                iconUrl = '/'
+                iconUrl = shrineIcon
+                iconSize = [25,25]
                 break
         }
 
         const customIcon = L.icon({
             iconUrl: iconUrl,
-            iconSize: [15,15]
+            iconSize: iconSize
         })
 
         return L.marker(latlng, {icon: customIcon})
@@ -61,9 +88,8 @@ const POISLayer = L.geoJSON(POIS, {
     onEachFeature: (feature, layer) => {
         layer.bindPopup(
             `
-                <p><b>${feature.properties.fclass}</b></p>
+                <p><b>${feature.properties.fclass_pl}</b></p>
                 <hr>
-                <br>
                 ${feature.properties.name}
                 
             `

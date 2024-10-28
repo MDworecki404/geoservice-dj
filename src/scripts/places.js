@@ -4,7 +4,7 @@ import historicalIcon from '../assets/icons/historicalIcon.svg'
 
 const HIcon = L.icon({
     iconUrl: historicalIcon,
-    iconSize: [20,20]
+    iconSize: [30,30]
 })
 
 const HistoricalPlacesLayer = L.geoJSON(historicalPlaces, {
