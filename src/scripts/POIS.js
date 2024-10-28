@@ -13,6 +13,10 @@ import shelterIcon from '../assets/icons/shelterIcon.svg'
 import touristInfoIcon from '../assets/icons/touristInfoIcon.svg'
 import crossIcon from '../assets/icons/crossIcon.svg'
 import shrineIcon from '../assets/icons/shrineIcon.svg'
+import { layerControl } from './displayMap'
+import $ from 'jquery'
+import gsap from 'gsap'
+
 
 const POISLayer = L.geoJSON(POIS, {
     pointToLayer: (feature, latlng) => {
@@ -94,12 +98,29 @@ const POISLayer = L.geoJSON(POIS, {
                 
             `
         )
-    }
+    },
+    
     
 })
 
 const overlayPOIS = {
     "Punkty": POISLayer,
 }
+
+
+
+setTimeout(()=>{
+    $('.leaflet-control-layers-overlays label:nth-child(16) span .leaflet-control-layers-selector').on('click', function(){
+        const poisCheck = $('.leaflet-control-layers-overlays label:nth-child(16) span .leaflet-control-layers-selector').is(":checked")
+        if(poisCheck==true){
+            gsap.to('.poisLegend', {visibility: "visible"})
+            gsap.to('.poisLegend', {opacity: 1, delay: 0.1, duration: 0.5})
+        }
+        else{
+            gsap.to('.poisLegend', {opacity: 0, duration: 0.5})
+            gsap.to('.poisLegend', {visibility: "hidden", delay: 0.5})
+        }
+    })
+}, 1)
 
 export {overlayPOIS}
