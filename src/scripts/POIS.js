@@ -108,7 +108,6 @@ const overlayPOIS = {
 }
 
 
-
 setTimeout(()=>{
     $('.leaflet-control-layers-overlays label:nth-child(16) span .leaflet-control-layers-selector').on('click', function(){
         const poisCheck = $('.leaflet-control-layers-overlays label:nth-child(16) span .leaflet-control-layers-selector').is(":checked")
@@ -121,6 +120,7 @@ setTimeout(()=>{
             gsap.to('.poisLegend', {visibility: "hidden", delay: 0.5})
         }
     })
-}, 1)
+}, 1000)
+
 
 export {overlayPOIS}
