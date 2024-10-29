@@ -1,6 +1,8 @@
 <script>
 import gsap from 'gsap';
 import displayMap from '../scripts/displayMap.js'
+import $ from 'jquery';
+import { showPoisLegend } from '../scripts/POIS.js';
 
 const coverAnimation = () =>{
   gsap.to('.cover', {opacity: 0, duration: 2, delay: 0})
@@ -11,8 +13,12 @@ export default {
   mounted: () => {
     displayMap()
     coverAnimation()
-  }
+    showPoisLegend()
+    
+  },
 }
+
+
 
 
 
@@ -90,7 +96,7 @@ export default {
   margin-right: 10px;
   right: 0;
   margin-bottom: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.527);
   border: 2px solid rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
   visibility: hidden;
@@ -98,6 +104,7 @@ export default {
   display: flex;
   overflow-y: scroll;
   padding-right: 10px;
+
   ul li{
     list-style-type: none;
   }

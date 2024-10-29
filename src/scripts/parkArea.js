@@ -29,14 +29,14 @@ const natureReserveLayer = L.geoJson(natureReserve, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": .5,
-                "color": '#38e488',
+                "color": '#117d44',
                 
             })
         })
     },
     style: {
         "fillColor": '#38e488',
-        "color": '#38e488',
+        "color": '#117d44',
         "fillOpacity": 0.1,
         "weight": .5
     }
