@@ -10,6 +10,7 @@ import $ from 'jquery'
 import bikeIcon from '../assets/icons/bikeIcon.svg'
 import walkingIcon from '../assets/icons/walkingIcon.svg'
 import placesIcon from '../assets/icons/placesIcon.svg'
+import { overlayPhotos } from './photos'
 import '../plugins/ActiveLayers'
 //import legend from './legend'
 
@@ -34,11 +35,12 @@ tolerance: 5
 })
 const overlayLayers = {
 "Obszar parku ": parkAreaLayer,
-"Rezerwat przyrody Uroczysko Wrzosy <br><hr>": natureReserveLayer,
+"Rezerwat przyrody Uroczysko Wrzosy": natureReserveLayer,
+...overlayPhotos,
 ...overlayBikeRoutes, 
 ...overlayWalkRoutes,
 ...overlayPlaces,
-...overlayPOIS
+...overlayPOIS,
 }
 const basemapLayers = {
 "OpenStreetMap": osm,
@@ -70,11 +72,11 @@ const displayMap = async () => {
     layerControl.addTo(map)
 
     //const layerControl = L.control.activeLayers(basemapLayers, overlayLayers).addTo(map)
-    $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(3)');
+    $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(4)');
     $('.bikeIcon').attr('src',`${bikeIcon}`).css('transform', 'translate(0px,25%)')
-    $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(9)');
+    $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(10)');
     $('.walkingIcon').attr('src',`${walkingIcon}`).css('transform', 'translate(0px,25%)')
-    $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(14)');
+    $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(15)');
     $('.placesIcon').attr('src',`${placesIcon}`).css('transform', 'translate(0px,25%)')
     
     

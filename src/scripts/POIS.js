@@ -104,12 +104,12 @@ const POISLayer = L.geoJSON(POIS, {
 })
 
 const overlayPOIS = {
-    "Punkty": POISLayer,
+    "Punkty użyteczności publicznej": POISLayer,
 }
 
 const showPoisLegend = () => {
-    $('.leaflet-control-layers-overlays label:nth-child(16) span .leaflet-control-layers-selector').on('click', function(){
-        const poisCheck = $('.leaflet-control-layers-overlays label:nth-child(16) span .leaflet-control-layers-selector').is(":checked")
+    $('.leaflet-control-layers-overlays label:nth-child(17) span .leaflet-control-layers-selector').on('click', function(){
+        const poisCheck = $('.leaflet-control-layers-overlays label:nth-child(17) span .leaflet-control-layers-selector').is(":checked")
         if(poisCheck==true){
             gsap.to('.poisLegend', {visibility: "visible"})
             gsap.to('.poisLegend', {opacity: 1, delay: 0.1, duration: 0.5})
