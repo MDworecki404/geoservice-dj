@@ -95,6 +95,15 @@ video.backgroundVideo(autoplay muted loop)
         top: 0;
         z-index: -1;
         width: 100vw;
+
+        @media (min-aspect-ratio: 16/9){
+            width: 100vw;
+            height: auto;
+        }
+        @media (max-aspect-ratio: 16/9){
+            width: auto;
+            height: 100vh;
+        }
     }
 
     .main{
@@ -227,16 +236,13 @@ video.backgroundVideo(autoplay muted loop)
 <style scoped lang="scss">
 @media screen and (max-width: 768px) {
 
-    $background: rgba(79, 178, 219, 0.8235);
+    $background: rgba(79, 177, 219, 0.562);
 
     .main{
         width: 100vw;
         height: 100vh;
         margin: 0;
         padding: 0;
-        background-image: url('../assets/landingpagebackground.jpg');
-        background-size: cover;
-        background-position: center;
         opacity: 1;
 
         &_panel{
@@ -372,16 +378,13 @@ video.backgroundVideo(autoplay muted loop)
 <style scoped lang="scss">
 @media screen and (max-width: 576px) {
 
-    $background: rgba(79, 178, 219, 0.8235);
+    $background: rgba(79, 177, 219, 0.562);
 
     .main{
         width: 100vw;
         height: 100vh;
         margin: 0;
         padding: 0;
-        background-image: url('../assets/landingpagebackground.jpg');
-        background-size: cover;
-        background-position: center;
         opacity: 1;
 
         &_panel{
