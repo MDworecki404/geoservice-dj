@@ -14,19 +14,27 @@ import { overlayPhotos } from './photos'
 import '../plugins/ActiveLayers'
 //import legend from './legend'
 
-const hybrid = L.tileLayer('http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
+const hybrid = L.tileLayer(
+    'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', 
+    {
     attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
 }
 );
-const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+const osm = L.tileLayer(
+    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
     attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
 }
 );
-const satellite = L.tileLayer('http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', {
+const satellite = L.tileLayer(
+    'http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}',
+    {
     attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
 }
 );
-const terrain = L.tileLayer('http://mt0.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}', {
+const terrain = L.tileLayer(
+    'http://mt0.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}',
+    {
     attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
 }
 );   
@@ -51,8 +59,6 @@ const basemapLayers = {
 const layerControl = L.control.activeLayers(basemapLayers, overlayLayers)
 
 const displayMap = async () => {
-
-    
 
     const map = L.map('map', {
         layers: [osm, parkAreaLayer],
@@ -79,10 +85,6 @@ const displayMap = async () => {
     $('<span id="mapTitle"><img width=20 class="placesIcon"></img><b style="margin-left: 5px">Miejsca</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(15)');
     $('.placesIcon').attr('src',`${placesIcon}`).css('transform', 'translate(0px,25%)')
     
-    
-
-    //Legend
-    //legend()
 }
 
 export default displayMap
