@@ -12,7 +12,6 @@ import walkingIcon from '../assets/icons/walkingIcon.svg'
 import placesIcon from '../assets/icons/placesIcon.svg'
 import { overlayPhotos } from './photos'
 import '../plugins/ActiveLayers'
-//import legend from './legend'
 
 const hybrid = L.tileLayer(
     'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', 
