@@ -1,18 +1,13 @@
 
 @font-face{
-  font-family: ISOCT3;
-  src: url('./assets/ISOCT3.ttf');
-}
-@font-face {
-  font-family: Ojuju;
-  src: url('./assets/Ojuju/static/Ojuju-Regular.ttf');
-  
+  font-family: RobotoSlab;
+  src: url('./assets/RobotoSlab-Regular.ttf');
 }
 
 :root, body{
   margin: 0;
   padding: 0;
-  font-family: ISOCT3;
+  font-family: RobotoSlab;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
