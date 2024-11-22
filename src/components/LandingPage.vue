@@ -1,6 +1,13 @@
 <script>
 
     import gsap from 'gsap';
+    import ScrollToPlugin from 'gsap/ScrollToPlugin';
+    import _ScrollTrigger from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollToPlugin)
+
+    const enterAnimation = () =>{
+        gsap.to('.main--title', {opacity: 1, duration: 2, delay: 0.2, ease: "power1.in"})
+    }
 
 
     export default {
@@ -11,73 +18,71 @@
             }
         },
         methods: {
-            parkInfoFunc(){
-                if(this.animState === 0){
-                    this.animState = 1
-                    gsap.to('.title', {y: -150, duration: 0.5})
-                    gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
-                    this.parkInfo = 'Park krajobrazowy utworzony w 1994 (pow. 7953 ha) położony w województwie dolnośląskim, w powiecie wołowskim, na północny zachód od Wołowa, na pograniczu Niziny Śląskiej oraz Wału Trzebnickiego w dorzeczu Jezierzycy, do której na obszarze parku wpływa mały prawobrzeżny dopływ Juszka.'
-                }
-                else if(this.animState === 2 || this.animState === 3){
-                    this.animState = 1
-                    gsap.to('.info', {opacity: 0, duration: 0.5})
-                    setTimeout(function(){
-                        this.parkInfo = 'Park krajobrazowy utworzony w 1994 (pow. 7953 ha) położony w województwie dolnośląskim, w powiecie wołowskim, na północny zachód od Wołowa, na pograniczu Niziny Śląskiej oraz Wału Trzebnickiego w dorzeczu Jezierzycy, do której na obszarze parku wpływa mały prawobrzeżny dopływ Juszka.'
-                    }.bind(this), 500)
-                    gsap.to('.info', {opacity: 1, duration: 0.5, delay: 0.5})
-                }
-            },
-            projectInfoFunc(){
-                if(this.animState === 0){
-                    this.animState = 2
-                    gsap.to('.title', {y: -150, duration: 0.5})
-                    gsap.fromTo('.info', {opacity: 0, duration: 0.5,}, {opacity: 1, duration: 0.5, delay: 0.5,})
-                    this.parkInfo = 'Projekt jest wynikiem pracy inżynierskiej i powstał w celach edukacyjnych.'
-                }
-                else if(this.animState === 1 || this.animState === 3){
-                    this.animState = 2
-                    gsap.to('.info', {opacity: 0, duration: 0.5})
-                    setTimeout(function(){
-                        this.parkInfo = 'Projekt jest wynikiem pracy inżynierskiej i powstał w celach edukacyjnych.'
-                    }.bind(this), 500)
-                    gsap.to('.info', {opacity: 1, duration: 0.5, delay: 0.5})
-                }
-            },
             gotoMapHover(){
-                gsap.set('.earth', {rotateY: 0})
-                gsap.set('.pin', {y: 0,})
-                gsap.to('.earth', {rotateY: 360, duration: 2, ease: "none"})
-                gsap.to('.pin', {y: -50, duration: 0.5})
-                gsap.to('.pin', {y: 0, delay: 0.5})
+                gsap.to('.earth', {scale: 1.1, rotateY: 180})
+                gsap.to('.pin', {y: -50})
             },
-            
+            gotoMapHoverOut(){
+                gsap.to('.earth', {scale: 1, rotateY: 0})
+                gsap.to('.pin', {y: 0, ease: "bounce.out"})
+            },
+            gotoAbout(){
+                const scrollAbout = document.querySelector('#AboutPark')
+                gsap.to(window, {duration: 1, scrollTo: scrollAbout})
+                
+            },
+            gotoProject(){
+                const scrollProject = document.querySelector('#AboutProject')
+                gsap.to(window, {duration: 1, scrollTo: scrollProject})
+                
+            },
+                
+        },
+        mounted: ()=>{
+            enterAnimation()
         }
     }
     
 
 </script>
 
-<template> 
+<template>
+<div id="view">
     <div id="main">
         <div class="main--nav">
             <ul>
-                <li><span>O parku</span></li>
-                <li><span>O projekcie</span></li>
+                <li><span @click="gotoAbout">O parku</span></li>
+                <li><span @click="gotoProject">O projekcie</span></li>
             </ul>
         </div>
-        <div class="main--title">
+        <div @load="enterAnimation" class="main--title">
             Park Krajobrazowy<br>Dolina Jezierzycy
         </div>
         <div class="main--gotoMap">
-            <div @mouseover="gotoMapHover" class="button">
-                <img class="earth" src="../assets/earth.png">
-                <img class="pin" src="../assets/pin.png">
-            </div>
+            
+                <div @mouseover="gotoMapHover" @mouseleave="gotoMapHoverOut" class="button">
+                    <router-link to="/map">
+                        <img class="earth" src="../assets/earth.png">
+                        <img class="pin" src="../assets/pin.png">
+                    </router-link>
+                </div>
+            
         </div>
+    </div>
+    <div id="AboutPark">
+        <article class="AboutParkArticle">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at! Fugiat, quidem maxime nesciunt eum consectetur quae quos aspernatur fugit porro odit quis, tenetur repellendus eligendi! Est iure aliquam repudiandae?
+        </article>
+    </div>
+    <div id="AboutProject">
+        <article class="AboutProjectArticle">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at! Fugiat, quidem maxime nesciunt eum consectetur quae quos aspernatur fugit porro odit quis, tenetur repellendus eligendi! Est iure aliquam repudiandae?
+        </article>
     </div>
     <video class="backgroundVideo" autoplay muted loop>
         <source src="../assets/PracaINZ.mp4" type="video/mp4">
     </video>
+</div> 
 </template>
 
 <style lang="scss">
@@ -100,6 +105,7 @@
     }
 
     #main{
+        
         margin: 0;
         padding: 0;
         width: 100vw;
@@ -110,9 +116,11 @@
     }
     .main--nav{
         width: 100%;
-        height: 25%;
+        height: 15%;
         color: white;
         font-size: 1.5vw;
+        position: fixed;
+        z-index: 100;
 
         ul{
             width: 100%;
@@ -127,30 +135,40 @@
             li{
                 width: 50%;
                 text-align: center;
+
+                span:hover{
+                    cursor: pointer;
+                    color: rgb(194, 194, 194);
+                    transition: 0.2s all ease-in-out;
+                }
             }
         }
     }
     .main--title{
         width: 100vw;
-        height: 50%;
+        height: 100%;
         color: white;
         display: flex;
         justify-content: center;
         text-align: center;
         font-size: 5vw;
-        padding-top: 5%;
+        padding-top: 16%;
+        opacity: 0;
     }
     .main--gotoMap{
-        width: 100%;
+        width: 100vw;
         height:25%;
-
+        position: fixed;
+        bottom: 0;
+        
         .button{
             margin-left: auto;
             margin-right: auto;
+            
             height: 100%;
-            width: 256px;
+            width: 128px;
             display: flex;
-            justify-content: center;
+            
 
             img{
                 position: fixed;
@@ -163,6 +181,53 @@
                 }
             }
             
+        }
+    }
+
+    #AboutPark{
+        
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #1696ffb2;
+        display: flex;
+        flex-direction: column;
+
+        .AboutParkArticle{
+            width: 90vw;
+            height: 80vh;
+            margin-top: 10vh;
+            display: flex;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            color: white;
+            font-size: 32px;
+            padding-top: 15%;
+
+        }
+    }
+    #AboutProject{
+        
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #1696ffb2;
+        display: flex;
+        flex-direction: column;
+
+        .AboutProjectArticle{
+            width: 90vw;
+            height: 80vh;
+            margin-top: 10vh;
+            display: flex;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            color: white;
+            font-size: 32px;
+            padding-top: 15%;
+
         }
     }
 </style>

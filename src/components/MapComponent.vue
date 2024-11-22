@@ -22,6 +22,8 @@ export default {
 <template lang="pug">
 .cover
 #map
+router-link(to='/')
+  img(class="goBack" src='../assets/goBack.svg')
 .poisLegend
   ul
     li 
@@ -121,6 +123,14 @@ export default {
   }
 }
 
+.goBack{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  z-index: 1000 !important;
+  width: 50px;
+}
 
 
 </style>
