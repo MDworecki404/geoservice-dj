@@ -104,7 +104,7 @@
         </article>
     </div>
     <video class="backgroundVideo" autoplay muted loop>
-        <source src="../assets/PracaINZ.mp4" type="video/mp4">
+        <source src="../assets/Least.mp4" type="video/mp4">
     </video>
 </div> 
 </template>
