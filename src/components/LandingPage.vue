@@ -106,10 +106,12 @@
     <video class="backgroundVideo" autoplay muted loop>
         <source src="../assets/Least.mp4" type="video/mp4">
     </video>
+
 </div> 
 </template>
 
 <style scoped lang="scss">
+
 @media screen and (min-width: 1281px) {
 
     .backgroundVideo{
@@ -265,6 +267,7 @@
 </style>
 <style scoped lang="scss">
     @media screen and (max-width: 1280px) {
+
         .backgroundVideo{
         position: fixed;
         left: 0;

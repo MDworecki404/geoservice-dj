@@ -119,7 +119,7 @@ router-link(to='/')
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
-    max-height: 35vh;
+    max-height: 25vh;
   }
 }
 
