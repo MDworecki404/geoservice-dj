@@ -2,7 +2,6 @@
 
     import gsap from 'gsap';
     import ScrollToPlugin from 'gsap/ScrollToPlugin';
-    import _ScrollTrigger from 'gsap/ScrollTrigger';
     gsap.registerPlugin(ScrollToPlugin)
 
     const enterAnimation = () =>{
