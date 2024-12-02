@@ -816,7 +816,7 @@
                 cursor: pointer;
                 
                 &:first-child{
-                    margin-top: 3%;
+                    margin-top: 15%;
                 }
             }
             
