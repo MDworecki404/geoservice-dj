@@ -1,45 +1,46 @@
 <script>
 
     import gsap from 'gsap';
-    import ScrollToPlugin from 'gsap/ScrollToPlugin';
-    gsap.registerPlugin(ScrollToPlugin)
-
-    const enterAnimation = () =>{
-        gsap.to('.main--title', {opacity: 1, duration: 2, delay: 0.2, ease: "power1.in"})
-    }
 
 
     export default {
-        data(){
+        data() {
             return {
-                parkInfo: '',
-                animState: 0
+                animState: 0,
             }
         },
         methods: {
             gotoMapHover(){
-                gsap.to('.earth', {scale: 1.1, rotateY: 180})
-                gsap.to('.pin', {y: -50})
+                gsap.to('.earth', {scale: 1.1})
             },
             gotoMapHoverOut(){
-                gsap.to('.earth', {scale: 1, rotateY: 0})
-                gsap.to('.pin', {y: 0, ease: "bounce.out"})
+                gsap.to('.earth', {scale: 1})
             },
-            gotoAbout(){
-                const scrollAbout = document.querySelector('#AboutPark')
-                gsap.to(window, {duration: 1, scrollTo: scrollAbout})
-                
+            infoAnimationPark(){
+                if(this.animState===0){
+                    this.animState = 1
+                    gsap.to('.main--title', {opacity: 0, duration: 0.5})
+                    gsap.to('#AboutPark', {visibility: 'visible', opacity: 1, duration: 1, delay: 0.5})
+                } else if(this.animState===2){
+                    this.animState = 1
+                    gsap.to('#AboutProject', {opacity: 0, duration: 0.5})
+                    gsap.to('#AboutProject', {visibility: 'hidden', delay: 0.5})
+                    gsap.to('#AboutPark', {visibility: 'visible', opacity: 1, duration: 1, delay: 0.5})
+                }
             },
-            gotoProject(){
-                const scrollProject = document.querySelector('#AboutProject')
-                gsap.to(window, {duration: 1, scrollTo: scrollProject})
-                
-            },
-                
+            infoAnimationProject(){
+                if(this.animState===0){
+                    this.animState = 2
+                    gsap.to('.main--title', {opacity: 0, duration: 0.5})
+                    gsap.to('#AboutProject', {visibility: 'visible', opacity: 1, duration: 1, delay: 0.5})
+                } else if(this.animState===1){
+                    this.animState = 2
+                    gsap.to('#AboutPark', {opacity: 0, duration: 0.5})
+                    gsap.to('#AboutPark', {visibility: 'hidden', delay: 0.5})
+                    gsap.to('#AboutProject', {visibility: 'visible', opacity: 1, duration: 1, delay: 0.5})
+                }
+            }
         },
-        mounted: ()=>{
-            enterAnimation()
-        }
     }
     
 
@@ -47,26 +48,22 @@
 
 <template>
 <div id="view">
-    <div id="main">
-        <div class="main--nav">
+    <div class="nav">
             <ul>
-                <li><span @click="gotoAbout">O parku</span></li>
-                <li><span @click="gotoProject">O projekcie</span></li>
+                <li><span @click="infoAnimationPark">O parku</span></li>
+                <li><span @click="infoAnimationProject">O projekcie</span></li>
             </ul>
         </div>
-        <div @load="enterAnimation" class="main--title">
-            Park Krajobrazowy<br>Dolina Jezierzycy
+    <div id="main">
+        <div class="main--title">
+            <span>Park Krajobrazowy<br>Dolina Jezierzycy</span>
         </div>
-        <div class="main--gotoMap">
-            
-                <div @mouseover="gotoMapHover" @mouseleave="gotoMapHoverOut" class="button">
-                    <router-link to="/map">
-                        <img class="earth" src="../assets/earth.png">
-                        <img class="pin" src="../assets/pin.png">
-                    </router-link>
-                </div>
-            
-        </div>
+    </div>
+    <div id="gotoMap">
+        <router-link to="/map">
+            <img @mouseover="gotoMapHover" @mouseleave="gotoMapHoverOut" class="earth" src="../assets/earth.png">
+        </router-link>
+        <span> Przejdź do mapy</span>
     </div>
     <div id="AboutPark">
         <article class="AboutParkArticle">
@@ -105,13 +102,22 @@
     <video class="backgroundVideo" autoplay muted loop>
         <source src="../assets/Least.mp4" type="video/mp4">
     </video>
-
-</div> 
+</div>
 </template>
+<style lang="scss" scoped>
+    *{
+        margin: 0;
+        padding: 0;
+        color: white;
+    }
 
-<style scoped lang="scss">
-
-@media screen and (min-width: 1281px) {
+    #view{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        background-color: #1696ffb2;
+    }
 
     .backgroundVideo{
         position: fixed;
@@ -130,750 +136,107 @@
         }
     }
 
-    #main{
-        
-        margin: 0;
-        padding: 0;
+    .nav{
         width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-    }
-    .main--nav{
-        width: 100%;
-        height: 15%;
-        color: white;
-        font-size: 1.5vw;
+        height: 10vh;
         position: fixed;
-        z-index: 100;
-
+        font-size: 3vh;
+        z-index: 1000;
+        
         ul{
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: row;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            padding-top: 1%;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+            
 
             li{
-                width: 50%;
-                text-align: center;
+                list-style-type: none;
+                cursor: pointer;
 
-                span:hover{
-                    cursor: pointer;
-                    color: rgb(194, 194, 194);
-                    transition: 0.2s all ease-in-out;
-                }
             }
         }
+        
     }
-    .main--title{
+    #main{
         width: 100vw;
-        height: 100%;
-        color: white;
+        height: 100vh;
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        text-align: center;
-        font-size: 5vw;
-        padding-top: 16%;
-        opacity: 0;
+        align-items: center;
+        align-content: center;
+
+        .main--title{
+            font-size: 5vw;
+            text-align: center;
+        }
     }
-    .main--gotoMap{
+    #gotoMap{
         width: 100vw;
-        height:25%;
+        height: 20vh;
         position: fixed;
         bottom: 0;
-        
-        .button{
-            margin-left: auto;
-            margin-right: auto;
-            
-            height: 100%;
-            width: 128px;
-            display: flex;
-            
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 2%;
+
+        a{
+            height: 75%;
+            cursor: pointer;
 
             img{
-                position: fixed;
-                width: 128px;
-                height: 128px;
-                cursor: pointer;
-                
-                &:first-child{
-                    margin-top: 3%;
-                }
+                height: 100%;
             }
-            
         }
+        span{
+            height: 25%;
+            font-size: 3vh;
+        }
+        
     }
-
     #AboutPark{
-        
-        margin: 0;
-        padding: 0;
+        position: absolute;
+        visibility: hidden;
         width: 100vw;
         height: 100vh;
-        background-color: #1696ffb2;
+        opacity: 0;
         display: flex;
         flex-direction: column;
-
-        .AboutParkArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 32px;
-            padding-top: 15%;
-
-        }
-    }
-    #AboutProject{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutProjectArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 32px;
-            padding-top: 8%;
-            flex-direction: column;
-
-            a{
-                color: rgb(23, 75, 124);
-                font-style: italic;
-            }
-
-        }
-    }
-}
-</style>
-<style scoped lang="scss">
-    @media screen and (max-width: 1280px) {
-
-        .backgroundVideo{
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        width: 100vw;
-
-        @media (min-aspect-ratio: 16/9){
-            width: 100vw;
-            height: auto;
-        }
-        @media (max-aspect-ratio: 16/9){
-            width: auto;
-            height: 100vh;
-        }
-    }
-
-    #main{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-    }
-    .main--nav{
-        width: 100%;
-        height: 15%;
-        color: white;
-        font-size: 2vw;
-        position: fixed;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-size: 4vh;
         z-index: 100;
 
-        ul{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            padding-top: 1%;
-
-            li{
-                width: 50%;
-                text-align: center;
-
-                span:hover{
-                    cursor: pointer;
-                    color: rgb(194, 194, 194);
-                    transition: 0.2s all ease-in-out;
-                }
-            }
-        }
-    }
-    .main--title{
-        width: 100vw;
-        height: 100%;
-        color: white;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-size: 6vw;
-        padding-top: 20%;
-        opacity: 0;
-    }
-    .main--gotoMap{
-        width: 100vw;
-        height:25%;
-        position: fixed;
-        bottom: 0;
-        
-        .button{
-            margin-left: auto;
-            margin-right: auto;
-            
-            height: 100%;
-            width: 128px;
-            display: flex;
-            
-
-            img{
-                position: fixed;
-                width: 128px;
-                height: 128px;
-                cursor: pointer;
-                
-                &:first-child{
-                    margin-top: 3%;
-                }
-            }
-            
-        }
-    }
-
-    #AboutPark{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
         .AboutParkArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 32px;
-            padding-top: 15%;
-
+            width: 90%;
         }
+
     }
     #AboutProject{
-        
-        margin: 0;
-        padding: 0;
+        position: absolute;
+        visibility: hidden;
         width: 100vw;
         height: 100vh;
-        background-color: #1696ffb2;
+        opacity: 0;
         display: flex;
         flex-direction: column;
-
-        .AboutProjectArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 32px;
-            padding-top: 8%;
-            flex-direction: column;
-
-            a{
-                color: rgb(23, 75, 124);
-                font-style: italic;
-            }
-
-        }
-    }
-}
-</style>
-<style scoped lang="scss">
-    @media screen and (max-width: 992px) {
-        .backgroundVideo{
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        width: 100vw;
-
-        @media (min-aspect-ratio: 16/9){
-            width: 100vw;
-            height: auto;
-        }
-        @media (max-aspect-ratio: 16/9){
-            width: auto;
-            height: 100vh;
-        }
-    }
-
-    #main{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-    }
-    .main--nav{
-        width: 100%;
-        height: 15%;
-        color: white;
-        font-size: 4vw;
-        position: fixed;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-size: 4vh;
         z-index: 100;
-
-        ul{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            padding-top: 1%;
-
-            li{
-                width: 50%;
-                text-align: center;
-
-                span:hover{
-                    cursor: pointer;
-                    color: rgb(194, 194, 194);
-                    transition: 0.2s all ease-in-out;
-                }
-            }
-        }
     }
-    .main--title{
-        width: 100vw;
-        height: 100%;
-        color: white;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-size: 8vw;
-        padding-top: 55%;
-        opacity: 0;
-    }
-    .main--gotoMap{
-        width: 100vw;
-        height:25%;
-        position: fixed;
-        bottom: 0;
-        
-        .button{
-            margin-left: auto;
-            margin-right: auto;
-            
-            height: 100%;
-            width: 212px;
-            display: flex;
-            
-
-            img{
-                position: fixed;
-                width: 212px;
-                height: 212px;
-                cursor: pointer;
-                
-                &:first-child{
-                    margin-top: 3%;
-                }
-            }
-            
-        }
-    }
-
-    #AboutPark{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutParkArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 44px;
-            padding-top: 30%;
-
-        }
-    }
-    #AboutProject{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutProjectArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 40px;
-            padding-top: 15%;
-            flex-direction: column;
-
-            a{
-                color: rgb(23, 75, 124);
-                font-style: italic;
-            }
-
-        }
-    }
-}
-</style>
-<style scoped lang="scss">
-    @media screen and (max-width: 768px) {
-        .backgroundVideo{
-        position: fixed;
-        left: -100%;
-        top: 0;
-        z-index: -1;
-        width: 100vw;
-
-        @media (min-aspect-ratio: 16/9){
-            width: 100vw;
-            height: auto;
-        }
-        @media (max-aspect-ratio: 16/9){
-            width: auto;
-            height: 100vh;
-        }
-    }
-
-    #main{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-    }
-    .main--nav{
-        width: 100%;
-        height: 15%;
-        color: white;
-        font-size: 6vw;
-        position: fixed;
-        z-index: 100;
-
-        ul{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            padding-top: 1%;
-
-            li{
-                width: 50%;
-                text-align: center;
-
-                span:hover{
-                    cursor: pointer;
-                    color: rgb(194, 194, 194);
-                    transition: 0.2s all ease-in-out;
-                }
-            }
-        }
-    }
-    .main--title{
-        width: 100vw;
-        height: 100%;
-        color: white;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-size: 10vw;
-        padding-top: 75%;
-        opacity: 0;
-    }
-    .main--gotoMap{
-        width: 100vw;
-        height:25%;
-        position: fixed;
-        bottom: 0;
-        
-        .button{
-            margin-left: auto;
-            margin-right: auto;
-            
-            height: 100%;
-            width: 212px;
-            display: flex;
-            
-
-            img{
-                position: fixed;
-                width: 212px;
-                height: 212px;
-                cursor: pointer;
-                
-                &:first-child{
-                    margin-top: 3%;
-                }
-            }
-            
-        }
-    }
-
-    #AboutPark{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutParkArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 36px;
-            padding-top: 45%;
-
-        }
-    }
-    #AboutProject{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutProjectArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 36px;
-            padding-top: 10%;
-            flex-direction: column;
-
-            a{
-                color: rgb(23, 75, 124);
-                font-style: italic;
-            }
-
-        }
-    }
-}
-</style>
-<style scoped lang="scss">
-    @media screen and (max-width: 576px) {
-        .backgroundVideo{
-        position: fixed;
-        left: -100%;
-        top: 0;
-        z-index: -1;
-        width: 100vw;
-
-        @media (min-aspect-ratio: 16/9){
-            width: 100vw;
-            height: auto;
-        }
-        @media (max-aspect-ratio: 16/9){
-            width: auto;
-            height: 100vh;
-        }
-    }
-
-    #main{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-    }
-    .main--nav{
-        width: 100%;
-        height: 15%;
-        color: white;
-        font-size: 6vw;
-        position: fixed;
-        z-index: 100;
-
-        ul{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            padding-top: 5%;
-
-            li{
-                width: 50%;
-                text-align: center;
-
-                span:hover{
-                    cursor: pointer;
-                    color: rgb(194, 194, 194);
-                    transition: 0.2s all ease-in-out;
-                }
-            }
-        }
-    }
-    .main--title{
-        width: 100vw;
-        height: 100%;
-        color: white;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-size: 10vw;
-        padding-top: 90%;
-        opacity: 0;
-    }
-    .main--gotoMap{
-        width: 100vw;
-        height:25%;
-        position: fixed;
-        bottom: 0;
-        
-        .button{
-            margin-left: auto;
-            margin-right: auto;
-            
-            height: 100%;
-            width: 128px;
-            display: flex;
-            
-
-            img{
-                position: fixed;
-                width: 128px;
-                height: 128px;
-                cursor: pointer;
-                
-                &:first-child{
-                    margin-top: 15%;
-                }
-            }
-            
-        }
-    }
-
-    #AboutPark{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutParkArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 20px;
-            padding-top: 45%;
-
-        }
-    }
-    #AboutProject{
-        
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #1696ffb2;
-        display: flex;
-        flex-direction: column;
-
-        .AboutProjectArticle{
-            width: 90vw;
-            height: 80vh;
-            margin-top: 10vh;
-            display: flex;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            color: white;
-            font-size: 20px;
-            padding-top: 10%;
-            flex-direction: column;
-
-            a{
-                color: rgb(23, 75, 124);
-                font-style: italic;
-            }
-
-        }
-    }
-}
 </style>
