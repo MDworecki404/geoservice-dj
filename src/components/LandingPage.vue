@@ -2,6 +2,11 @@
 
     import gsap from 'gsap';
 
+    const loadTitle = () =>{
+        gsap.to('.main--title', {opacity: 1, duration: 0.0000001})
+        gsap.to('#AboutPark', {opacity: 0, duration: 0.0000001})
+        gsap.to('#AboutProject', {opacity: 0, duration: 0.0000001})
+    }
 
     export default {
         data() {
@@ -39,8 +44,12 @@
                     gsap.to('#AboutPark', {visibility: 'hidden', delay: 0.5})
                     gsap.to('#AboutProject', {visibility: 'visible', opacity: 1, duration: 1, delay: 0.5})
                 }
-            }
+            },
+            
         },
+        mounted: () => {
+            loadTitle()
+        }
     }
     
 
