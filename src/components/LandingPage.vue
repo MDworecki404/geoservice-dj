@@ -222,6 +222,16 @@
         font-size: 4vh;
         z-index: 100;
 
+        @media screen and (max-width: 587px){
+            font-size: 3.5vh;
+        }
+        @media screen and (max-width: 469px){
+            font-size: 3vh;
+        }
+        @media screen and (max-width: 321px){
+            font-size: 2.5vh;
+        }
+
         .AboutParkArticle{
             width: 90%;
         }
