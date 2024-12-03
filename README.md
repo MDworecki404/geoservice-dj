@@ -12,7 +12,7 @@ All vector data needed to create the application was previously prepared in Quan
 
 The application was created for tourists visiting the Jezierzyca Valley Landscape Park located in Poland's Lower Silesia province. The application is compatible with mobile devices so you can easily use it anywhere.<br>
 
-The app is finished and it's available on free hosting: [LINK](gisupwr-dolinajezierzycy.netlify.app) <br>
+The app is finished and it's available on free hosting: [LINK]([gisupwr-dolinajezierzycy.netlify.app](https://gisupwr-dolinajezierzycy.netlify.app)) <br>
 
 # Vue 3 + Vite
 
