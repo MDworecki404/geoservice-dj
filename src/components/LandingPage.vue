@@ -186,6 +186,13 @@
         .main--title{
             font-size: 5vw;
             text-align: center;
+
+            @media screen and (max-width: 909px){
+                font-size: 7vw;
+            }
+            @media screen and (max-width: 500px){
+                font-size: 8.5vw;
+            }
         }
     }
     #gotoMap{
