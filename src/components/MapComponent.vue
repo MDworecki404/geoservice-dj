@@ -8,64 +8,45 @@ const coverAnimation = () =>{
   gsap.to('.cover', {opacity: 0, duration: 2, delay: 0})
   gsap.to('.cover', {visibility: 'hidden', delay: 1})
 }
+const infoAnimation = () =>{
+  gsap.to('.info', {opacity: 0, duration: 2, delay: 5})
+  gsap.to('.info', {visibility: 'hidden', duration: 0, delay: 7})
+}
 
 export default {
   mounted: () => {
     displayMap()
     coverAnimation()
     showPoisLegend()
-    
+    infoAnimation()
   },
 }
 
 </script>
-<template lang="pug">
-.cover
-#map
-router-link(to='/')
-  img(class="goBack" src='../assets/goBack.svg')
-.poisLegend
-  ul
-    li 
-      img(src='../assets/icons/archaeologicalIcon.svg')
-      span Archeologia
-    li 
-      img(src='../assets/icons/attractionIcon.svg')
-      span Atrakcje
-    li 
-      img(src='../assets/icons/benchIcon.svg')
-      span Ławki
-    li 
-      img(src='../assets/icons/hotelIcon.svg')
-      span Pensjonaty
-    li 
-      img(src='../assets/icons/huntingStandIcon.svg')
-      span Wieże myśliwskie
-    li 
-      img(src='../assets/icons/memorialIcon.svg')
-      span Memoriały
-    li 
-      img(src='../assets/icons/observationTowerIcon.svg')
-      span Wieże obserwacyjne
-    li 
-      img(src='../assets/icons/picnicIcon.svg')
-      span Miejsca piknikowe
-  ul
-    li 
-      img(src='../assets/icons/pitchIcon.svg')
-      span Boiska
-    li 
-      img(src='../assets/icons/postBoxIcon.svg')
-      span Skrzynki pocztowe   
-    li 
-      img(src='../assets/icons/shelterIcon.svg')
-      span Schroniska
-    li 
-      img(src='../assets/icons/crossIcon.svg')
-      span Przydrożne krzyże
-    li 
-      img(src='../assets/icons/shrineIcon.svg')
-      span Przydrożne kapliczki        
+<template>
+  <div class="info">Jeśli podkład mapowy się nie wyświetla - odśwież stronę (F5) lub wybierz jeden z panelu warstw</div>
+  <div class="cover"></div> 
+  <div id="map"></div>
+  <router-link to="/"><img class="goBack" src="../assets/goBack.svg" /></router-link>
+  <div class="poisLegend">
+      <ul>
+          <li> <img src="../assets/icons/archaeologicalIcon.svg" /><span>Archeologia</span></li>
+          <li> <img src="../assets/icons/attractionIcon.svg" /><span>Atrakcje</span></li>
+          <li> <img src="../assets/icons/benchIcon.svg" /><span>Ławki</span></li>
+          <li> <img src="../assets/icons/hotelIcon.svg" /><span>Pensjonaty</span></li>
+          <li> <img src="../assets/icons/huntingStandIcon.svg" /><span>Wieże myśliwskie</span></li>
+          <li> <img src="../assets/icons/memorialIcon.svg" /><span>Memoriały</span></li>
+          <li> <img src="../assets/icons/observationTowerIcon.svg" /><span>Wieże obserwacyjne</span></li>
+          <li> <img src="../assets/icons/picnicIcon.svg" /><span>Miejsca piknikowe</span></li>
+      </ul>
+      <ul>
+          <li> <img src="../assets/icons/pitchIcon.svg" /><span>Boiska</span></li>
+          <li> <img src="../assets/icons/postBoxIcon.svg" /><span>Skrzynki pocztowe   </span></li>
+          <li> <img src="../assets/icons/shelterIcon.svg" /><span>Schroniska</span></li>
+          <li> <img src="../assets/icons/crossIcon.svg" /><span>Przydrożne krzyże</span></li>
+          <li> <img src="../assets/icons/shrineIcon.svg" /><span>Przydrożne kapliczki </span></li>
+      </ul>
+  </div>    
 </template>
 <style scoped lang="scss">
 @import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
@@ -132,5 +113,19 @@ router-link(to='/')
   width: 50px;
 }
 
-
+.info{
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(39, 39, 39, 0.507);
+  z-index: 1000000 !important;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  color: white;
+  text-align: center;
+  border: 1px solid black;
+  opacity: 1;
+}
 </style>

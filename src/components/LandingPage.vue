@@ -117,6 +117,8 @@
         margin: 0;
         padding: 0;
         background-color: #1696ffb2;
+        width: 100vw;
+        height: 100vh;
     }
 
     .backgroundVideo{
@@ -189,6 +191,7 @@
         align-items: center;
         align-content: center;
         margin-bottom: 2%;
+        z-index: 1000;
 
         a{
             height: 75%;
@@ -238,5 +241,32 @@
         align-content: center;
         font-size: 4vh;
         z-index: 100;
+
+        @media screen and (max-width: 1352px){
+            font-size: 3vh;
+        }
+        @media screen and (max-width: 515px){
+            font-size: 2.7vh;
+        }
+        @media screen and (max-width: 446px){
+            font-size: 2.3vh;
+        }
+
+        .AboutProjectArticle{
+            width: 85vw;
+            ul li{
+                a{
+                    color: #025da8;
+                    font-style: italic;
+                    transition: all 0.5s;
+
+                    &:hover{
+                        text-shadow: #fff 1px 0px 10px;
+                    }
+                }
+            }
+        }
     }
+
+    
 </style>
