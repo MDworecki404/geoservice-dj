@@ -1,0 +1,16 @@
+---Język polski---
+Aby uruchomić projekt należy wykonać następujące kroki:
+1. Pobrać oprogramowanie Node.js z adresu: https://nodejs.org/en
+2. Zainstalować je wraz z domyślnymi ustawieniami.
+3. Przejść do katalogu zawierającego kod źródłowy oraz uruchomić tę lokalizację w wierszu poleceń.
+4. W wierszu poleceń należy wpisać komendę npm run dev, dzięki której wystartuje serwer deweloperski.
+5. Wpisać w przeglądarce wyświetlony w konsoli link: localhost:5173
+
+---English---
+
+To launch the project, follow these steps:
+1. download the Node.js software from the following address: https://nodejs.org/en.
+2. install it with the default settings.
+3. navigate to the directory containing the source code and run this location on the command line.
+4. on the command line, type the npm run dev command, which will start the development server.
+5. type the link displayed in the console in your browser: localhost:5173
