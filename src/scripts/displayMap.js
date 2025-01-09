@@ -16,25 +16,25 @@ import '../plugins/ActiveLayers'
 const hybrid = L.tileLayer(
     'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', 
     {
-    attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
+    attribution: 'Autor: <b></i>Marek Dworecki</i></b> | Map data ©2025 Google'
 }
 );
 const osm = L.tileLayer(
     'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
-    attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
+    attribution: 'Autor: <b></i>Marek Dworecki</i></b> | © OpenStreetMap contributors'
 }
 );
 const satellite = L.tileLayer(
     'http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}',
     {
-    attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
+    attribution: 'Autor: <b></i>Marek Dworecki</i></b> | Map data ©2025 Google'
 }
 );
 const terrain = L.tileLayer(
     'http://mt0.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}',
     {
-    attribution: 'Autor: <b></i>Marek Dworecki</i><b>'
+    attribution: 'Autor: <b></i>Marek Dworecki</i></b> | Map data ©2025 Google'
 }
 );   
 const clickTolerance = L.canvas({
@@ -76,7 +76,6 @@ const displayMap = async () => {
     }).addTo(map)
     layerControl.addTo(map)
 
-    //const layerControl = L.control.activeLayers(basemapLayers, overlayLayers).addTo(map)
     $('<span id="mapTitle"><img class="bikeIcon"></img><b style="margin-left: 5px">Trasy rowerowe</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(4)');
     $('.bikeIcon').attr('src',`${bikeIcon}`).css('transform', 'translate(0px,25%)')
     $('<span id="mapTitle"><img class="walkingIcon"></img><b style="margin-left: 5px">Trasy piesze</b><span>').insertBefore('.leaflet-control-layers-overlays label:nth-child(10)');

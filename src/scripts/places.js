@@ -16,6 +16,8 @@ const HistoricalPlacesLayer = L.geoJSON(historicalPlaces, {
                 <hr>
                 <br>
                 ${feature.properties.opis}
+                <br>
+                <a target="_blank" href="${feature.properties.link}">LINK</a>
                 
             `
         )

@@ -27,12 +27,12 @@ const T_A_O_WLayer = L.geoJSON(T_A_O_W, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": 3,
-                "color": '#01ffe6'
+                "color": '#4d11d9'
             })
         })
     },
     style: {
-        "color": '#01ffe6',
+        "color": '#4d11d9',
         "dashArray": '1, 5',
         "weight": "3",
         
@@ -61,12 +61,12 @@ const T_RLayer = L.geoJSON(T_R, {
         layer.on('mouseout', function(e){
             e.target.setStyle({
                 "weight": 3,
-                "color": '#c4ff01'
+                "color": '#2d4ded'
             })
         })
     },
     style: {
-        "color": '#c4ff01',
+        "color": '#2d4ded',
         "dashArray": '1, 5',
         "weight": "3",
         

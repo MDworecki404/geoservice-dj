@@ -13,7 +13,6 @@ import shelterIcon from '../assets/icons/shelterIcon.svg'
 import touristInfoIcon from '../assets/icons/touristInfoIcon.svg'
 import crossIcon from '../assets/icons/crossIcon.svg'
 import shrineIcon from '../assets/icons/shrineIcon.svg'
-import { layerControl } from './displayMap'
 import $ from 'jquery'
 import gsap from 'gsap'
 

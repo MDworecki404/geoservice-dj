@@ -51,7 +51,6 @@
             loadTitle()
         }
     }
-    
 
 </script>
 
@@ -72,7 +71,7 @@
         <router-link to="/map">
             <img @mouseover="gotoMapHover" @mouseleave="gotoMapHoverOut" class="earth" src="../assets/earth.png">
         </router-link>
-        <span> Przejdź do mapy</span>
+        <span>Przejdź do mapy</span>
     </div>
     <div id="AboutPark">
         <article class="AboutParkArticle">
