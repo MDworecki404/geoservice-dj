@@ -18,6 +18,7 @@ const natureReserveLayer = L.geoJson(natureReserve, {
                 <img style="width: 300px" src=${popupImage}></img>
                 <br>
                 <p>${feature.properties.description}</p>
+                <a href="https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Uroczysko_Wrzosy">LINK</a>
             `
         ),
         layer.on('mouseover', function(e){
