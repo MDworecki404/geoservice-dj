@@ -13,6 +13,7 @@
         "properties": {
           "Name": "Lubiąż-Krzydlina Mała-Dębno-Tarchalice",
           "dlugosc": "60.73",
+          "poziom_zaawansowania": "Średnio-zaawansowana",
           "link": "https://www.google.com/maps/d/u/0/viewer?mid=1ubBFzJRKu8cjXDNr5wwGDACK2cDw2mTh&ll=51.33277656177307%2C16.538204550000007&z=12"
         },
         "geometry": {

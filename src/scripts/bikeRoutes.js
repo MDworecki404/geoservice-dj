@@ -16,6 +16,8 @@ const L_K_M_D_TLayer = L.geoJson(L_K_M_D_T , {
                 <br>
                 Długość trasy: ${feature.properties.dlugosc}km
                 <br>
+                Poziom zaawansowania: ${feature.properties.poziom_zaawansowania}
+                <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
@@ -53,6 +55,8 @@ const S_W_WLayer = L.geoJson(S_W_W , {
                 <br>
                 Długość trasy: ${feature.properties.dlugosc}km
                 <br>
+                Poziom zaawansowania: ${feature.properties.poziom_zaawansowania}
+                <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
@@ -89,6 +93,8 @@ const T_P_D_WLayer = L.geoJson(T_P_D_W , {
                 <br>
                 Długość trasy: ${feature.properties.dlugosc}km
                 <br>
+                Poziom zaawansowania: ${feature.properties.poziom_zaawansowania}
+                <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
@@ -124,6 +130,8 @@ const T_R_123109Layer = L.geoJson(T_R_123109 , {
                 <br>
                 Długość trasy: ${feature.properties.dlugosc}km
                 <br>
+                Poziom zaawansowania: ${feature.properties.poziom_zaawansowania}
+                <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
         )
@@ -158,6 +166,8 @@ const U_WLayer = L.geoJson(U_W , {
                 <hr>
                 <br>
                 Długość trasy: ${feature.properties.dlugosc}km
+                <br>
+                Poziom zaawansowania: ${feature.properties.poziom_zaawansowania}
                 <br>
                 <a target="_blank" href="${feature.properties.link}">Link do trasy</a>
             `
